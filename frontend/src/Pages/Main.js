@@ -1,10 +1,43 @@
 import React from "react";
 
-const Main = (props) => {
-    const loaded = () => {
-        console.log("PROPS", props)
+const Main = ({state}) => {
+    let table = state[0].map((obj)=> {
         return (
-            <><h1>PROPS</h1></>
+            // console.log(obj)
+            <tr>
+                <td>
+                    {obj.date}
+                </td>
+                <td>
+                    {obj.time}
+                </td>
+                <td>
+                    {obj.event}
+                </td>
+            </tr>
+        )
+    })
+    const loaded = () => {
+        return (
+            <table>
+                <thead>
+                    <tr>
+                        <th>
+                            DATE
+                        </th>
+                        <th>
+                            TIME
+                        </th>
+                        <th>
+                            EVENT
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {table}
+                </tbody>
+            </table>
+
         )
     }
     const loading = () => {
@@ -12,7 +45,7 @@ const Main = (props) => {
             <><h1>Loading...</h1></>
         )
     }
-    return props.state ? loaded() : loading();
+    return state ? loaded() : loading();
 }
 
 export default Main;
