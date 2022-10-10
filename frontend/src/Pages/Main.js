@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "../Components/Header.js";
-import Scheduled from "../Components/Scheduled Fights.js";
+import Scheduled from "../Components/Scheduled.js";
 import Upcoming from "../Components/Upcoming.js";
 import Past from "../Components/Past.js";
 
