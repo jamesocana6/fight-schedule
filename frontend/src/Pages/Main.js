@@ -1,43 +1,18 @@
 import React from "react";
+import Header from "../Components/Header.js";
+import Scheduled from "../Components/Scheduled Fights.js";
+import Upcoming from "../Components/Upcoming.js";
+import Past from "../Components/Past.js";
 
-const Main = ({state}) => {
-    let table = state[0].map((obj)=> {
-        return (
-            // console.log(obj)
-            <tr>
-                <td>
-                    {obj.date}
-                </td>
-                <td>
-                    {obj.time}
-                </td>
-                <td>
-                    {obj.event}
-                </td>
-            </tr>
-        )
-    })
+const Main = ({fights}) => {
     const loaded = () => {
         return (
-            <table>
-                <thead>
-                    <tr>
-                        <th>
-                            DATE
-                        </th>
-                        <th>
-                            TIME
-                        </th>
-                        <th>
-                            EVENT
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {table}
-                </tbody>
-            </table>
-
+            <>
+            <Header/>
+            <Upcoming upcoming={fights[0]}/>
+            <Scheduled scheduled={fights[1]}/>
+            <Past past={fights[2]}/>
+            </>
         )
     }
     const loading = () => {
@@ -45,7 +20,7 @@ const Main = ({state}) => {
             <><h1>Loading...</h1></>
         )
     }
-    return state ? loaded() : loading();
+    return fights ? loaded() : loading();
 }
 
 export default Main;
