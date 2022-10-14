@@ -8,10 +8,10 @@ const Main = ({fights}) => {
     const loaded = () => {
         return (
             <>
-            <Header/>
-            <Upcoming upcoming={fights[0]}/>
-            <Scheduled scheduled={fights[1]}/>
-            <Past past={fights[2]}/>
+                <Header/>
+                <Upcoming upcoming={fights[0]}/>
+                <Scheduled scheduled={fights[1]}/>
+                <Past past={fights[2]}/>
             </>
         )
     }

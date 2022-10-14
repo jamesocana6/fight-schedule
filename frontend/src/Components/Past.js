@@ -4,12 +4,12 @@ const Past = ({ past }) => {
     // console.log(past)
     let table = past.map((obj) => {
         return (
-            <tr key={obj.idx}>
+            <tr key={obj.index}>
                 <td>
-                    {obj.date}
+                    {obj["1"]}
                 </td>
                 <td>
-                    {obj.event}
+                    {obj["2"]}
                 </td>
             </tr>
         )

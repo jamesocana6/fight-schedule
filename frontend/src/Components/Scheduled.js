@@ -4,15 +4,15 @@ const Scheduled = ({ scheduled }) => {
     // console.log(scheduled)
     let table = scheduled.map((obj) => {
         return (
-            <tr key={obj.idx}>
+            <tr key={obj.index}>
                 <td>
-                    {obj.date}
+                    {obj["1"]}
                 </td>
                 <td>
-                    {obj.time}
+                    {obj["2"]}
                 </td>
                 <td>
-                    {obj.event}
+                    {obj["4"]}
                 </td>
             </tr>
         )
