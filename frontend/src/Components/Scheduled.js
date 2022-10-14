@@ -1,7 +1,7 @@
 import React from "react";
 
 const Scheduled = ({ scheduled }) => {
-    console.log(scheduled)
+    // console.log(scheduled)
     let table = scheduled.map((obj) => {
         return (
             <tr key={obj.idx}>

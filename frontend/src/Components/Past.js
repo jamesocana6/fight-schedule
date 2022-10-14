@@ -1,7 +1,7 @@
 import React from "react";
 
 const Past = ({ past }) => {
-    console.log(past)
+    // console.log(past)
     let table = past.map((obj) => {
         return (
             <tr key={obj.idx}>

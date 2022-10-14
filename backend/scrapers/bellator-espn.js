@@ -2,7 +2,7 @@ const express = require("express");
 const axios = require("axios");
 const cheerio = require("cheerio");
 
-const URL = "https://www.espn.com/mma/schedule/_/league/ufc"
+const URL = "https://www.espn.com/mma/schedule/_/league/bellator"
 const fights = [];
 
 async function getData() {

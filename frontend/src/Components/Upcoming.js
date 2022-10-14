@@ -1,7 +1,7 @@
 import React from "react";
 
 const Upcoming = ({ upcoming }) => {
-    console.log(upcoming)
+    // console.log(upcoming)
     let table = upcoming.map((obj) => {
         return (
             <tr key={obj.idx}>
