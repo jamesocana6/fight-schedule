@@ -11,6 +11,8 @@ const BOXING = require("./scrapers/boxing.js");
 //const MMA = require("./scrapers/mma-espn.js");
 //const BOXING = require("./scrapers/boxing-intwwe.js");
 const cors = require("cors");
+const date = new Date();
+const today = (date.getMonth()+1).toString() + date.getDate().toString()
 const dates = {
      "JAN": "01", 
      "FEB": "02", 
@@ -35,12 +37,29 @@ app.get('/', (req, res) => {
     
     // console.log(ONE)
     let fights = [...UFC, ...PFL, ...BELL, ...BOXING];
-    
+    let sorted = sortByDate(formatDate(fights))
+    let past = []
+    let scheduled = []
+    let upcoming = []
+    for (let fight of sorted) {
+        if (fight["1"] >= today && Number.parseInt(fight["1"]) < Number.parseInt(today) + 7) {
+            upcoming.push(fight);
+        } else if (fight["1"] >= today) {
+            scheduled.push(fight);
+        } else {
+            past.push(fight);
+        }
+    }
+    fights = [upcoming, scheduled, past]
+    // console.log(past)
+    // console.log("SCHEDULED", scheduled)
+    // console.log("UPCOMING", upcoming)
+    //console.log(past)
     //console.log(fights[0]["1"])
-    console.log(sortByDate(formatDate(fights)))
+    // console.log(sortByDate(formatDate(fights)))
     //console.log(...UFC)
     // console.log(UFC)
-    res.json(UFC);
+    res.json(fights);
     //res.json(BELL);
 })
 
