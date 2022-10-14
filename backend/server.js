@@ -34,7 +34,7 @@ app.use(express.json());
 app.get('/', (req, res) => {
     
     // console.log(ONE)
-    let fights = [...UFC, ...PFL, ...BELL];
+    let fights = [...UFC, ...PFL, ...BELL, ...BOXING];
     
     //console.log(fights[0]["1"])
     console.log(sortByDate(formatDate(fights)))
