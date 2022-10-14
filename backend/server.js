@@ -6,6 +6,7 @@ const PORT = 4000;
 const UFC = require("./scrapers/ufc-espn.js");
 const PFL = require("./scrapers/pfl-espn.js");
 const BELL = require("./scrapers/bellator-espn.js");
+const BOXING = require("./scrapers/boxing.js");
 //const ONE = require("./scrapers/one-intwwe.js");
 //const MMA = require("./scrapers/mma-espn.js");
 //const BOXING = require("./scrapers/boxing-intwwe.js");
