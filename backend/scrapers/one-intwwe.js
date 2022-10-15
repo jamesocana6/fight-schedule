@@ -31,13 +31,12 @@ async function getData() {
     // Use .each method to loop through the elemtns we selected
     date.each((idx, el) => {
         if (fights[idx] && $(el).text()) {
-            fights[idx]["date"] = $(el).text().substring(0,6);
+            fights[idx]["date"] = $(el).text().substring(0,6).trim();
             fights[idx]["event"] = $(event[idx]).text();
             fights[idx]["link"] = $(link[idx]).attr("href");
             fights[idx]["org"] = "ONE";
         }
     });
-    console.log(fights)
 }
 
 getData()

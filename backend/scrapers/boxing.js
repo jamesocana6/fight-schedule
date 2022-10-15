@@ -17,14 +17,16 @@ async function getData() {
         let event = $(el).text().replaceAll(".","").replaceAll("-","–").split("–")
         if (event.length < 4) {
             fight["date"] = event[1].trim().substring(0,3).toUpperCase() + " " + event[1].trim().substring(event[1].trim().length-2)
-            fight["time"] = event[2].trim()
-            fight["3"] = event[3]
             fight["event"] = event[0].trim()
+            if (event[2].trim().substring(0, event[2].trim().indexOf(" ")).length <= 2) {
+                fight["time"] = event[2].trim().substring(0, event[2].trim().indexOf(" ")) + ":00" + event[2].trim().substring(event[2].trim().indexOf(" ")).toUpperCase();
+            }
         } else {
             fight["date"] = (event[2].trim().substring(0,3).toUpperCase() + " " + event[2].trim().substring(event[2].trim().length-2)).replace("  ", " ")
-            fight["time"] = event[3].trim()
-            fight["3"] = event[1].trim()
             fight["event"] = event[0].trim()
+            if (event[3].trim().substring(0, event[3].trim().indexOf(" ")).length <= 2) {
+                fight["time"] = event[3].trim().substring(0, event[3].trim().indexOf(" ")) + ":00" + event[3].trim().substring(event[3].trim().indexOf(" ")).toUpperCase();
+            }        
         }    
         fight.index = idx;
         fight["link"] = $(links[idx]).attr("href")

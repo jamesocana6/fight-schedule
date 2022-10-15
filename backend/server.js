@@ -77,7 +77,7 @@ function formatDate(fights) {
 }
 
 function sortByDate(fights) {
-    let sorted = fights.sort((a,b) => b['date'] - a['date'] )
+    let sorted = fights.sort((a,b) => a['date'] - b['date'] )
     let i = 0;
     for (let fight of sorted) {
         fight.index = i
@@ -102,5 +102,5 @@ function dateMMM(fights) {
     return mapped
 }
 
-// TODO: add ONE championship, Bareknuckle boxing fight league, and then maybe link to the real website if possible. Use indexing to correctly find the fight. 
+// TODO: and then maybe link to the real website if possible. Use indexing to correctly find the fight. 
 // Style front end, maybe add a calendar, allow filtering by org 

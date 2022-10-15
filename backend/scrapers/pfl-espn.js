@@ -21,7 +21,7 @@ async function getData() {
         const fight = { index: ""};
         fight.index = idx;
         fight["date"] = $(el).text();
-        fight["time"] = $(col2[idx]).text();
+        fight["time"] = $(col2[idx]).text()  + " ET";
         fight["3"] = $(col3[idx]).text();
         fight["event"] = $(col4[idx]).text();
         fight["link"] = "https://www.espn.com"+$(col5[idx]).attr('href');
