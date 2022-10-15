@@ -10,6 +10,7 @@ async function getData() {
     //This weeks events
     // #mec_skin_events_4142 > div > div > div:nth-child(3) > div:nth-child(1) > article > div.event-detail-wrap > h4 > a    const datesUpcoming = $("div > div > figure.wp-block-table.has-small-font-size > table > tbody > tr > td:nth-child(1)");
     const events = $("a.mec-color-hover");
+    const links = $("div.event-detail-wrap > h4 > a")
     // Use .each method to loop through the elemtns we selected
     events.each((idx, el) => {
         const fight = { index: ""};    
@@ -26,7 +27,8 @@ async function getData() {
             fight["4"] = event[0].trim()
         }    
         fight.index = idx;
-        fight["org"]= "Boxing";
+        fight["5"] = $(links[idx]).attr("href")
+        fight["org"] = "Boxing";
         fights.push(fight);
     });
 }

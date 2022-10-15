@@ -12,7 +12,7 @@ const Past = ({ past }) => {
                     {obj["1"]}
                 </td>
                 <td>
-                    {obj["2"]}
+                    <a href={obj["5"]} target="_blank">{obj["2"]}</a>
                 </td>
             </tr>
         )

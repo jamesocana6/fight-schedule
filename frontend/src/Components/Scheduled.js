@@ -15,7 +15,7 @@ const Scheduled = ({ scheduled }) => {
                     {obj["2"]}
                 </td>
                 <td>
-                    {obj["4"]}
+                    <a href={obj["5"]} target="_blank">{obj["4"]}</a>
                 </td>
             </tr>
         )
@@ -33,7 +33,7 @@ const Scheduled = ({ scheduled }) => {
                             DATE
                         </th>
                         <th>
-                            TIME
+                            TIME (ET)
                         </th>
                         <th>
                             EVENT

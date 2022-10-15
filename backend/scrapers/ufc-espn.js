@@ -14,6 +14,7 @@ async function getData() {
     const col2 = $("div:nth-child(3) > div > div > section > div > div > div > div.flex > div > div.Table__Scroller > table > tbody > tr > td:nth-child(2)");
     const col3 = $("div:nth-child(3) > div > div > section > div > div > div > div.flex > div > div.Table__Scroller > table > tbody > tr > td:nth-child(3)");
     const col4 = $("div:nth-child(3) > div > div > section > div > div > div > div.flex > div > div.Table__Scroller > table > tbody > tr > td:nth-child(4)");
+    const col5 = $("div:nth-child(3) > div > div > section > div > div > div > div.flex > div > div.Table__Scroller > table > tbody > tr > td.event__col.Table__TD > a")
     // const fights = $("div:nth-child(3) > div > div > section > div > div:nth-child(3) > div > div.flex > div > div.Table__Scroller > table > tbody > tr > td:nth-child(4)");
     // Use .each method to loop through the elemtns we selected
     col1.each((idx, el) => {
@@ -23,6 +24,7 @@ async function getData() {
         fight["2"] = $(col2[idx]).text();
         fight["3"] = $(col3[idx]).text();
         fight["4"] = $(col4[idx]).text();
+        fight["5"] = "https://www.espn.com"+$(col5[idx]).attr('href');
         fight["org"]= "UFC";
         fights.push(fight);
     });

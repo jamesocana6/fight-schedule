@@ -82,7 +82,7 @@ function sortByDate(fights) {
     for (let fight of sorted) {
         fight.index = i
         i++
-        console.log(fight)
+        //console.log(fight)
     }
     return sorted
 }

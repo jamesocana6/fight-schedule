@@ -11,7 +11,7 @@ function App() {
     const response = await fetch(URL)
     const data = await response.json()
     setState(data);
-    console.log(data)
+    //console.log(data)
   }
 
   useEffect(() => {getData()}, [])

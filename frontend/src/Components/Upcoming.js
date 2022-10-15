@@ -14,7 +14,7 @@ const Upcoming = ({ upcoming }) => {
                     {obj["2"]}
                 </td>
                 <td>
-                    {obj["4"]}
+                    <a href={obj["5"]} target="_blank">{obj["4"]}</a>
                 </td>
             </tr>
         )
@@ -32,7 +32,7 @@ const Upcoming = ({ upcoming }) => {
                             DATE
                         </th>
                         <th>
-                            TIME
+                            TIME (ET)
                         </th>
                         <th>
                             EVENT
