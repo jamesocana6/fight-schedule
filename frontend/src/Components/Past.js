@@ -12,7 +12,7 @@ const Past = ({ past }) => {
                     {obj["date"]}
                 </td>
                 <td>
-                    <a href={obj["link"]} target="_blank" rel="noreferrer">{obj["time"]}</a>
+                    <a href={obj["link"]} target="_blank" rel="noreferrer">{obj["time"].replace(" ET", "")}</a>
                 </td>
             </tr>
         )
