@@ -101,3 +101,6 @@ function dateMMM(fights) {
     }
     return mapped
 }
+
+// TODO: add ONE championship, Bareknuckle boxing fight league, and then maybe link to the real website if possible. Use indexing to correctly find the fight. 
+// Style front end, maybe add a calendar, allow filtering by org 
