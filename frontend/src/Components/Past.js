@@ -6,6 +6,9 @@ const Past = ({ past }) => {
         return (
             <tr key={obj.index}>
                 <td>
+                    {obj["org"]}
+                </td>
+                <td>
                     {obj["1"]}
                 </td>
                 <td>
@@ -20,6 +23,9 @@ const Past = ({ past }) => {
             <table>
                 <thead>
                     <tr>
+                        <th>
+                            ORG
+                        </th>
                         <th>
                             DATE
                         </th>

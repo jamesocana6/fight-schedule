@@ -26,6 +26,7 @@ async function getData() {
             fight["4"] = event[0].trim()
         }    
         fight.index = idx;
+        fight["org"]= "Boxing";
         fights.push(fight);
     });
 }

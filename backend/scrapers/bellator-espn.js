@@ -23,6 +23,7 @@ async function getData() {
         fight["2"] = $(col2[idx]).text();
         fight["3"] = $(col3[idx]).text();
         fight["4"] = $(col4[idx]).text();
+        fight["org"]= "Bellator";
         fights.push(fight);
     });
 }

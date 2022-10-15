@@ -5,6 +5,9 @@ const Upcoming = ({ upcoming }) => {
         return (
             <tr key={obj.index}>
                 <td>
+                    {obj["org"]}
+                </td>
+                <td>
                     {obj["1"]}
                 </td>
                 <td>
@@ -22,6 +25,9 @@ const Upcoming = ({ upcoming }) => {
             <table>
                 <thead>
                     <tr>
+                        <th>
+                            ORG
+                        </th>
                         <th>
                             DATE
                         </th>
