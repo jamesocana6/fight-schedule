@@ -7,7 +7,7 @@ const UFC = require("./scrapers/ufc-espn.js");
 const PFL = require("./scrapers/pfl-espn.js");
 const BELL = require("./scrapers/bellator-espn.js");
 const BOXING = require("./scrapers/boxing.js");
-//const ONE = require("./scrapers/one-intwwe.js");
+const ONE = require("./scrapers/one-intwwe.js");
 //const MMA = require("./scrapers/mma-espn.js");
 //const BOXING = require("./scrapers/boxing-intwwe.js");
 const cors = require("cors");
@@ -37,12 +37,12 @@ app.get('/', (req, res) => {
     let past = []
     let scheduled = []
     let upcoming = []
-    let fights = [...UFC, ...PFL, ...BELL, ...BOXING];
+    let fights = [...UFC, ...PFL, ...BELL, ...BOXING, ...ONE];
     let sorted = sortByDate(formatDate(fights))
     for (let fight of sorted) {
-        if (fight["1"] >= today && Number.parseInt(fight["1"]) < Number.parseInt(today) + 7) {
+        if (fight["date"] >= today && Number.parseInt(fight["date"]) < Number.parseInt(today) + 7) {
             upcoming.push(fight);
-        } else if (fight["1"] >= today) {
+        } else if (fight["date"] >= today) {
             scheduled.push(fight);
         } else {
             past.push(fight);
@@ -56,7 +56,7 @@ app.get('/boxing', (req, res) => {
     // console.log(ONE)
     //res.json(UFC);
     //console.log("BELL", BELL)
-    res.json(BELL);
+    res.json(ONE);
 })
 
 app.listen(PORT, () => {
@@ -65,11 +65,11 @@ app.listen(PORT, () => {
 
 function formatDate(fights) {
     let mapped = fights.map((fight) => { 
-        if (fight["1"].substring(4).length == 1 ) {
-            fight["1"] = fight["1"].substring(0,4) + "0" + fight["1"].substring(4)
+        if (fight["date"].substring(4).length == 1 ) {
+            fight["date"] = fight["date"].substring(0,4) + "0" + fight["date"].substring(4)
         }
-        if (fight["1"].substring(0,3).toUpperCase() in dates) {
-            fight["1"] = dates[fight["1"].substring(0,3).toUpperCase()] + fight["1"].substring(4)
+        if (fight["date"].substring(0,3).toUpperCase() in dates) {
+            fight["date"] = dates[fight["date"].substring(0,3).toUpperCase()] + fight["date"].substring(4)
         }
         return fight
     })
@@ -77,7 +77,7 @@ function formatDate(fights) {
 }
 
 function sortByDate(fights) {
-    let sorted = fights.sort((a,b) => b['1'] - a['1'] )
+    let sorted = fights.sort((a,b) => b['date'] - a['date'] )
     let i = 0;
     for (let fight of sorted) {
         fight.index = i
@@ -90,13 +90,13 @@ function sortByDate(fights) {
 function dateMMM(fights) {
     let monthArr = []
     let mapped = fights.map((fight) => { 
-        month = Object.keys(dates).find((key) => dates[key] === fight["1"].substring(0,2))
+        month = Object.keys(dates).find((key) => dates[key] === fight["date"].substring(0,2))
         monthArr.push(month)
         return fight
     })
     for (let i = 0 ; i < fights.length ; i++) {
-        if (fights[i]["1"].length != 6 ) {
-            fights[i]["1"] = monthArr[i] + " " + fights[i]["1"].substring(2)
+        if (fights[i]["date"].length != 6 ) {
+            fights[i]["date"] = monthArr[i] + " " + fights[i]["date"].substring(2)
         }
     }
     return mapped

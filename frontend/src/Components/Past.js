@@ -9,10 +9,10 @@ const Past = ({ past }) => {
                     {obj["org"]}
                 </td>
                 <td>
-                    {obj["1"]}
+                    {obj["date"]}
                 </td>
                 <td>
-                    <a href={obj["5"]} target="_blank">{obj["2"]}</a>
+                    <a href={obj["link"]} target="_blank" rel="noreferrer">{obj["time"]}</a>
                 </td>
             </tr>
         )

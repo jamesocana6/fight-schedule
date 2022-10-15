@@ -9,13 +9,13 @@ const Scheduled = ({ scheduled }) => {
                     {obj["org"]}
                 </td>
                 <td>
-                    {obj["1"]}
+                    {obj["date"]}
                 </td>
                 <td>
-                    {obj["2"]}
+                    {obj["time"]}
                 </td>
                 <td>
-                    <a href={obj["5"]} target="_blank">{obj["4"]}</a>
+                    <a href={obj["link"]} target="_blank" rel="noreferrer">{obj["event"]}</a>
                 </td>
             </tr>
         )

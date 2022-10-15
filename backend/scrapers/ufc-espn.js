@@ -20,11 +20,11 @@ async function getData() {
     col1.each((idx, el) => {
         const fight = { index: ""};
         fight.index = idx;
-        fight["1"] = $(el).text();
-        fight["2"] = $(col2[idx]).text();
+        fight["date"] = $(el).text();
+        fight["time"] = $(col2[idx]).text();
         fight["3"] = $(col3[idx]).text();
-        fight["4"] = $(col4[idx]).text();
-        fight["5"] = "https://www.espn.com"+$(col5[idx]).attr('href');
+        fight["event"] = $(col4[idx]).text();
+        fight["link"] = "https://www.espn.com"+$(col5[idx]).attr('href');
         fight["org"]= "UFC";
         fights.push(fight);
     });

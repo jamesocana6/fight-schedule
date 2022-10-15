@@ -16,18 +16,18 @@ async function getData() {
         const fight = { index: ""};    
         let event = $(el).text().replaceAll(".","").replaceAll("-","–").split("–")
         if (event.length < 4) {
-            fight["1"] = event[1].trim().substring(0,3).toUpperCase() + " " + event[1].trim().substring(event[1].trim().length-2)
-            fight["2"] = event[2].trim()
+            fight["date"] = event[1].trim().substring(0,3).toUpperCase() + " " + event[1].trim().substring(event[1].trim().length-2)
+            fight["time"] = event[2].trim()
             fight["3"] = event[3]
-            fight["4"] = event[0].trim()
+            fight["event"] = event[0].trim()
         } else {
-            fight["1"] = (event[2].trim().substring(0,3).toUpperCase() + " " + event[2].trim().substring(event[2].trim().length-2)).replace("  ", " ")
-            fight["2"] = event[3].trim()
+            fight["date"] = (event[2].trim().substring(0,3).toUpperCase() + " " + event[2].trim().substring(event[2].trim().length-2)).replace("  ", " ")
+            fight["time"] = event[3].trim()
             fight["3"] = event[1].trim()
-            fight["4"] = event[0].trim()
+            fight["event"] = event[0].trim()
         }    
         fight.index = idx;
-        fight["5"] = $(links[idx]).attr("href")
+        fight["link"] = $(links[idx]).attr("href")
         fight["org"] = "Boxing";
         fights.push(fight);
     });
