@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 const Scheduled = ({ scheduled }) => {
-    // console.log(scheduled)
-    let table = scheduled.map((obj) => {
+    const [ toggle, setToggle ] = useState(true)
+
+    function toggleTable() {
+        setToggle(!toggle); 
+    }
+    
+    let tableData = scheduled.map((obj) => {
         return (
             <tr key={obj.index}>
                 <td>
@@ -21,39 +26,57 @@ const Scheduled = ({ scheduled }) => {
             </tr>
         )
     })
-    return (
-        <div className="scheduled-fights">
-            <div className="table-header">
-                <h2>Scheduled Fights</h2>
-                <div className="expand-icon">
-                    <ExpandMoreIcon/>
+        
+    const clicked = () => {
+        return (
+            <div className="scheduled-fights">
+                <div onClick={toggleTable} className="table-header">
+                    <h2>Scheduled Fights</h2>
+                    <div className="expand-icon">
+                        <ExpandMoreIcon/>
+                    </div>
+                </div>
+                <div className="fight-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>
+                                    ORG
+                                </th>
+                                <th>
+                                    DATE
+                                </th>
+                                <th>
+                                    TIME
+                                </th>
+                                <th>
+                                    EVENT
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {tableData}
+                        </tbody>
+                    </table>
                 </div>
             </div>
-            <div className="fight-table">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>
-                                ORG
-                            </th>
-                            <th>
-                                DATE
-                            </th>
-                            <th>
-                                TIME
-                            </th>
-                            <th>
-                                EVENT
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {table}
-                    </tbody>
-                </table>
+        )
+    }
+
+    const notClicked = () => {
+        return (
+            <div className="scheduled-fights">
+                <div onClick={toggleTable} className="table-header">
+                    <h2>Scheduled Fights</h2>
+                    <div className="expand-icon">
+                        <ExpandMoreIcon/>
+                    </div>
+                </div>
             </div>
-        </div>
-    )
+        )
+    }
+
+    return toggle? clicked() : notClicked();
 }
 
 export default Scheduled;
