@@ -1,4 +1,5 @@
 import React from "react";
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 const Scheduled = ({ scheduled }) => {
     // console.log(scheduled)
@@ -22,7 +23,10 @@ const Scheduled = ({ scheduled }) => {
     })
     return (
         <div className="scheduled-fights">
-            <h2>Scheduled Fights</h2>
+            <div className="table-header">
+                <h2>Scheduled Fights</h2>
+                <ExpandMoreIcon/>
+            </div>
             <div className="fight-table">
                 <table>
                     <thead>
@@ -34,7 +38,7 @@ const Scheduled = ({ scheduled }) => {
                                 DATE
                             </th>
                             <th>
-                                TIME (ET)
+                                TIME
                             </th>
                             <th>
                                 EVENT

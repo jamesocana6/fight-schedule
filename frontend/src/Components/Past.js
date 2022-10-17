@@ -1,4 +1,5 @@
 import React from "react";
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 const Past = ({ past }) => {
     // console.log(past)
@@ -18,8 +19,11 @@ const Past = ({ past }) => {
         )
     })
     return (
-        <div className="past-figths">
-            <h2>Past Fights This Year</h2>
+        <div className="past-fights">
+            <div className="table-header">
+                <h2>Past Fights This Year</h2>
+                <ExpandMoreIcon/>
+            </div>
             <div className="fight-table">
                 <table>
                     <thead>

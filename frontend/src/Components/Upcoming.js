@@ -1,4 +1,5 @@
 import React from "react";
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 const Upcoming = ({ upcoming }) => {
     let table = upcoming.map((obj) => {
@@ -21,7 +22,10 @@ const Upcoming = ({ upcoming }) => {
     })
     return (
         <div className="upcoming-fights">
-            <h2>Upcoming Fights</h2>
+            <div className="table-header">
+                <h2>Upcoming Fights</h2>
+                <ExpandMoreIcon/>
+            </div>
             <div className="fight-table">
                 <table>
                     <thead>
@@ -33,7 +37,7 @@ const Upcoming = ({ upcoming }) => {
                                 DATE
                             </th>
                             <th>
-                                TIME (ET)
+                                TIME
                             </th>
                             <th>
                                 EVENT
