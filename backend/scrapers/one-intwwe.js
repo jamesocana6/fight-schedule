@@ -25,18 +25,20 @@ async function getData() {
     const { data } = await axios.get(URL2);
     const $ = cheerio.load(data);
     //This weeks events
-    const date = $("body > main > section.site-section.section-upcoming-events > div > div > article > header > div.date > span.day");
+    const date = $("body > main > section.site-section.section-upcoming-events > div > div > article > header > div.date:nth-child(4) > span.day");
     const event = $("body > main > section.site-section.section-upcoming-events > div > div > article > header > h3 > a > span");
     const link = $("body > main > section.site-section.section-upcoming-events > div > div > article > header > h3 > a");
     // Use .each method to loop through the elemtns we selected
     date.each((idx, el) => {
         if (fights[idx] && $(el).text()) {
             fights[idx]["date"] = $(el).text().substring(0,6).trim();
+            console.log(fights[idx]["date"])
             fights[idx]["event"] = $(event[idx]).text();
             fights[idx]["link"] = $(link[idx]).attr("href");
             fights[idx]["org"] = "ONE";
         }
     });
+    console.log(fights)
 }
 
 getData()
