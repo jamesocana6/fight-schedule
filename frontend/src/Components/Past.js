@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 const Past = ({ past }) => {
-    // console.log(past)
+    const [ toggle, setToggle ] = useState(false);
+
+    function toggleTable() {
+        setToggle(!toggle);
+    }
+
     let table = past.map((obj) => {
         return (
             <tr key={obj.index}>
@@ -18,36 +23,54 @@ const Past = ({ past }) => {
             </tr>
         )
     })
-    return (
-        <div className="past-fights">
-            <div className="table-header">
-                <h2>Past Fights This Year</h2>
-                <div className="expand-icon">
-                    <ExpandMoreIcon/>
+
+    const clicked = () => {
+        return (
+            <div className="past-fights">
+                <div onClick={toggleTable} className="table-header">
+                    <h2>Past Fights This Year</h2>
+                    <div className="expand-icon">
+                        <ExpandMoreIcon/>
+                    </div>
+                </div>
+                <div className="fight-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>
+                                    ORG
+                                </th>
+                                <th>
+                                    DATE
+                                </th>
+                                <th>
+                                    EVENT
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {table}
+                        </tbody>
+                    </table>
                 </div>
             </div>
-            <div className="fight-table">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>
-                                ORG
-                            </th>
-                            <th>
-                                DATE
-                            </th>
-                            <th>
-                                EVENT
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {table}
-                    </tbody>
-                </table>
+        )
+    }
+
+    const notClicked = () => {
+        return (
+            <div className="past-fights">
+                <div onClick={toggleTable} className="table-header">
+                    <h2>Past Fights This Year</h2>
+                    <div className="expand-icon">
+                        <ExpandMoreIcon/>
+                    </div>
+                </div>
             </div>
-        </div>
-    )
+        )
+    }
+
+    return toggle? clicked() : notClicked();
 }
 
 export default Past;

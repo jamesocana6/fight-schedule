@@ -8,7 +8,7 @@ const Scheduled = ({ scheduled }) => {
         setToggle(!toggle); 
     }
     
-    let tableData = scheduled.map((obj) => {
+    let table = scheduled.map((obj) => {
         return (
             <tr key={obj.index}>
                 <td>
@@ -55,7 +55,7 @@ const Scheduled = ({ scheduled }) => {
                             </tr>
                         </thead>
                         <tbody>
-                            {tableData}
+                            {table}
                         </tbody>
                     </table>
                 </div>
