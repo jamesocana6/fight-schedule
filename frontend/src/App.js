@@ -1,4 +1,4 @@
-import './App.css';
+import './public/style.css';
 import Main from './Pages/Main';
 import { useEffect, useState } from 'react';
 

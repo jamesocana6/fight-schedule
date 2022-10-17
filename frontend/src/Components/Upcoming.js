@@ -20,30 +20,32 @@ const Upcoming = ({ upcoming }) => {
         )
     })
     return (
-        <>
-        <h2>Upcoming Fights</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>
-                            ORG
-                        </th>
-                        <th>
-                            DATE
-                        </th>
-                        <th>
-                            TIME (ET)
-                        </th>
-                        <th>
-                            EVENT
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {table}
-                </tbody>
-            </table>
-        </>
+        <div className="upcoming-fights">
+            <h2>Upcoming Fights</h2>
+            <div className="fight-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>
+                                ORG
+                            </th>
+                            <th>
+                                DATE
+                            </th>
+                            <th>
+                                TIME (ET)
+                            </th>
+                            <th>
+                                EVENT
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {table}
+                    </tbody>
+                </table>
+            </div>
+        </div>
     )
 }
 

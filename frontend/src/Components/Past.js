@@ -18,27 +18,29 @@ const Past = ({ past }) => {
         )
     })
     return (
-        <>
-        <h2>Past Fights This Year</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>
-                            ORG
-                        </th>
-                        <th>
-                            DATE
-                        </th>
-                        <th>
-                            EVENT
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {table}
-                </tbody>
-            </table>
-        </>
+        <div className="past-figths">
+            <h2>Past Fights This Year</h2>
+            <div className="fight-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>
+                                ORG
+                            </th>
+                            <th>
+                                DATE
+                            </th>
+                            <th>
+                                EVENT
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {table}
+                    </tbody>
+                </table>
+            </div>
+        </div>
     )
 }
 

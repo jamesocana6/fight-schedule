@@ -21,30 +21,32 @@ const Scheduled = ({ scheduled }) => {
         )
     })
     return (
-        <>
-        <h2>Scheduled Fights</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>
-                            ORG
-                        </th>
-                        <th>
-                            DATE
-                        </th>
-                        <th>
-                            TIME (ET)
-                        </th>
-                        <th>
-                            EVENT
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {table}
-                </tbody>
-            </table>
-        </>
+        <div className="scheduled-fights">
+            <h2>Scheduled Fights</h2>
+            <div className="fight-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>
+                                ORG
+                            </th>
+                            <th>
+                                DATE
+                            </th>
+                            <th>
+                                TIME (ET)
+                            </th>
+                            <th>
+                                EVENT
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {table}
+                    </tbody>
+                </table>
+            </div>
+        </div>
     )
 }
 
