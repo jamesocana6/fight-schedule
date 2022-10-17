@@ -25,7 +25,9 @@ const Scheduled = ({ scheduled }) => {
         <div className="scheduled-fights">
             <div className="table-header">
                 <h2>Scheduled Fights</h2>
-                <ExpandMoreIcon/>
+                <div className="expand-icon">
+                    <ExpandMoreIcon/>
+                </div>
             </div>
             <div className="fight-table">
                 <table>

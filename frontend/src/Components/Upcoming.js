@@ -24,7 +24,9 @@ const Upcoming = ({ upcoming }) => {
         <div className="upcoming-fights">
             <div className="table-header">
                 <h2>Upcoming Fights</h2>
-                <ExpandMoreIcon/>
+                <div className="expand-icon">
+                    <ExpandMoreIcon/>
+                </div>
             </div>
             <div className="fight-table">
                 <table>

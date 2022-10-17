@@ -22,7 +22,9 @@ const Past = ({ past }) => {
         <div className="past-fights">
             <div className="table-header">
                 <h2>Past Fights This Year</h2>
-                <ExpandMoreIcon/>
+                <div className="expand-icon">
+                    <ExpandMoreIcon/>
+                </div>
             </div>
             <div className="fight-table">
                 <table>
