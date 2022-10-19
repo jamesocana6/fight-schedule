@@ -18,13 +18,15 @@ const Filter = ({ setUnselectedOrgs }) => {
     }
 
     return (
-        <div>
+        <div className="filter-form">
+            Filter by Organization:
             <form onClick={handleOnClick}>
-                UFC <input className="filterBox" type="checkbox" value="UFC" defaultChecked={true}/>
-                Boxing <input className="filterBox" type="checkbox" value="Boxing" defaultChecked={true}/>
-                ONE <input className="filterBox" type="checkbox" value="ONE" defaultChecked={true}/>
-                Bellator <input className="filterBox" type="checkbox" value="Bellator" defaultChecked={true}/>
-                PFL <input className="filterBox" type="checkbox" value="PFL" defaultChecked={true}/>
+                <label>UFC <input className="filterBox" type="checkbox" value="UFC" name="UFC" defaultChecked={true}/> </label>
+                <label>Boxing <input className="filterBox" type="checkbox" value="Boxing" name="Boxing" defaultChecked={true}/> </label>
+                <label>ONE <input className="filterBox" type="checkbox" value="ONE" name="ONE" defaultChecked={true}/> </label>
+                <label>Bellator <input className="filterBox" type="checkbox" value="Bellator" name="Bellator" defaultChecked={true}/> </label>
+                <label>PFL <input className="filterBox" type="checkbox" value="PFL" name="PFL" defaultChecked={true}/> </label> <br/>
+                <label>Starred Fights <input className="filterBox" type="checkbox" value="starred" name="starred" /></label>
             </form>
         </div>
     )

@@ -16,6 +16,8 @@
 :root {
     --theme-background: rgb(44, 44, 44);
     --theme-contrast: rgb(239, 239, 239);
+    --theme-onhover: rgb(205, 205, 205);
+    --theme-favorited: rgb(255, 235, 135);
 }
 
 .title {
@@ -24,6 +26,7 @@
     font-family: "New Athletic";
     color: var(--theme-contrast);
     background-color: var(--theme-background);
+    width: 100%;
 }
 
 /* TABLE */
@@ -84,6 +87,10 @@ td:last-child {
     text-align: left;
 }
 
+tbody > tr:hover {
+    background-color: var(--theme-onhover);
+}
+
 /* EXPAND ICON AND H2 HOVER */
 
 h2:hover, h2:hover + .expand-icon, .expand-icon:hover {
@@ -94,4 +101,23 @@ h2:hover, h2:hover + .expand-icon, .expand-icon:hover {
 
 h2:hover + .expand-icon, .expand-icon:hover {
     color: var(--theme-contrast);
+}
+
+/* Filter form */
+
+.filter-form {
+    text-align: start;
+    margin-inline: 3rem;
+}
+
+input {
+    margin: 3px;
+}
+
+label {
+    margin-inline: 5px;
+}
+
+label:first-child, label:last-child {
+    margin-inline-start: 0px;
 }
