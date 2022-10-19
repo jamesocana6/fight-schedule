@@ -11,12 +11,6 @@ const Filter = ({ setUnselectedOrgs }) => {
             } else if (event.target.checked) {
                 unselectedOrgs.splice(unselectedOrgs.indexOf(event.target.value),1)
             }
-        }
-    }
-    
-    const handleSubmit = (event) => {
-        event.preventDefault()
-        if (event.target.type === "submit") {
             setUnselectedOrgs(unselectedOrgs)
         }
     }
@@ -30,7 +24,6 @@ const Filter = ({ setUnselectedOrgs }) => {
                 Bellator <input type="checkbox" value="Bellator" defaultChecked={true}/>
                 PFL <input type="checkbox" value="PFL" defaultChecked={true}/>
             </form>
-            <input onClick={handleSubmit} type="submit" value="Filter"/>
         </div>
     )
 }
