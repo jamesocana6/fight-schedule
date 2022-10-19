@@ -1,19 +1,16 @@
 import React from "react";
-import Header from "../Components/Header.js";
 import Scheduled from "../Components/Scheduled.js";
 import Upcoming from "../Components/Upcoming.js";
 import Past from "../Components/Past.js";
 
 const Main = ({fights}) => {
+
     const loaded = () => {
         return (
-            <div>
-                <Header/>
-                <div className="all-fights">
-                    <Upcoming upcoming={fights[0]}/>
-                    <Scheduled scheduled={fights[1]}/>
-                    <Past past={fights[2]}/>
-                </div>
+            <div className="all-fights">
+                <Upcoming upcoming={fights[0]}/>
+                <Scheduled scheduled={fights[1]}/>
+                <Past past={fights[2]}/>
             </div>
         )
     }
