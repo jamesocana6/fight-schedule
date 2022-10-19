@@ -1,15 +1,17 @@
 import React from "react";
+import $ from "jquery";
 
 const Filter = ({ setUnselectedOrgs }) => {
 
     const unselectedOrgs = []
+    const allInputs = $("input")
 
     const handleOnClick = (event) => {
         if (event.target.type === "checkbox") {
-            if (!event.target.checked) {
-                unselectedOrgs.push(event.target.value)
-            } else if (event.target.checked) {
-                unselectedOrgs.splice(unselectedOrgs.indexOf(event.target.value),1)
+            for (let input of allInputs) {
+                if (!input.checked) {
+                    unselectedOrgs.push(input.value)
+                }
             }
             setUnselectedOrgs(unselectedOrgs)
         }
@@ -18,11 +20,11 @@ const Filter = ({ setUnselectedOrgs }) => {
     return (
         <div>
             <form onClick={handleOnClick}>
-                UFC <input type="checkbox" value="UFC" defaultChecked={true}/>
-                Boxing <input type="checkbox" value="Boxing" defaultChecked={true}/>
-                ONE <input type="checkbox" value="ONE" defaultChecked={true}/>
-                Bellator <input type="checkbox" value="Bellator" defaultChecked={true}/>
-                PFL <input type="checkbox" value="PFL" defaultChecked={true}/>
+                UFC <input className="filterBox" type="checkbox" value="UFC" defaultChecked={true}/>
+                Boxing <input className="filterBox" type="checkbox" value="Boxing" defaultChecked={true}/>
+                ONE <input className="filterBox" type="checkbox" value="ONE" defaultChecked={true}/>
+                Bellator <input className="filterBox" type="checkbox" value="Bellator" defaultChecked={true}/>
+                PFL <input className="filterBox" type="checkbox" value="PFL" defaultChecked={true}/>
             </form>
         </div>
     )
