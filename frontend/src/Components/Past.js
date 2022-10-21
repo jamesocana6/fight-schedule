@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+
 
 const Past = ({ past }) => {
     const [ toggle, setToggle ] = useState(false);
@@ -30,7 +32,7 @@ const Past = ({ past }) => {
                 <div onClick={toggleTable} className="table-header">
                     <h2>Past Fights This Year</h2>
                     <div className="expand-icon">
-                        <ExpandMoreIcon/>
+                        <ExpandLessIcon/>
                     </div>
                 </div>
                 <div className="fight-table">

@@ -20,6 +20,10 @@ function App() {
 
   useEffect(() => { getData().then(() => { if (fights != null) filterSchedule() }) }, [unselectedOrgs])
 
+  const addHighlight = (event) => {
+    event.target.closest("tr").setAttribute("class", "fav")
+  }
+
   function filterSchedule() {
     let allFilteredFights = [];
     //Let of instead of Let in. let in returns groups as 0, 1, 2
@@ -42,7 +46,7 @@ function App() {
     <div className="App">
       <Header />
       <Filter setUnselectedOrgs={setUnselectedOrgs} />
-      <Main fights={fights} />
+      <Main fights={fights} addHighlight={addHighlight}/>
     </div>
   );
 }

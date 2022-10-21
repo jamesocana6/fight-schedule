@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+import StarIcon from '@mui/icons-material/Star';
+import { yellow } from "@mui/material/colors";
 
-const Scheduled = ({ scheduled }) => {
+const Scheduled = ({ scheduled, addHighlight }) => {
     const [ toggle, setToggle ] = useState(true)
 
     function toggleTable() {
@@ -11,6 +14,9 @@ const Scheduled = ({ scheduled }) => {
     let table = scheduled.map((obj) => {
         return (
             <tr key={obj.index}>
+                <td onClick={addHighlight}>
+                    <StarIcon  sx={{ color:yellow[700] }}/>
+                </td>
                 <td>
                     {obj["org"]}
                 </td>
@@ -33,13 +39,15 @@ const Scheduled = ({ scheduled }) => {
                 <div onClick={toggleTable} className="table-header">
                     <h2>Scheduled Fights</h2>
                     <div className="expand-icon">
-                        <ExpandMoreIcon/>
+                        <ExpandLessIcon/>
                     </div>
                 </div>
                 <div className="fight-table">
                     <table>
                         <thead>
                             <tr>
+                                <th>
+                                </th>
                                 <th>
                                     ORG
                                 </th>

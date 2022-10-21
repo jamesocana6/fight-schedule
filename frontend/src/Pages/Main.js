@@ -3,13 +3,13 @@ import Scheduled from "../Components/Scheduled.js";
 import Upcoming from "../Components/Upcoming.js";
 import Past from "../Components/Past.js";
 
-const Main = ({fights}) => {
+const Main = ({fights, addHighlight}) => {
 
     const loaded = () => {
         return (
             <div className="all-fights">
-                <Upcoming upcoming={fights[0]}/>
-                <Scheduled scheduled={fights[1]}/>
+                <Upcoming upcoming={fights[0]} addHighlight={addHighlight}/>
+                <Scheduled scheduled={fights[1]} addHighlight={addHighlight}/>
                 <Past past={fights[2]}/>
             </div>
         )

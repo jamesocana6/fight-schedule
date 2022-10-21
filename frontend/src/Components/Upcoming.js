@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+import StarIcon from '@mui/icons-material/Star';
+import { yellow } from "@mui/material/colors";
 
-const Upcoming = ({ upcoming }) => {
-    const [ toggle, setToggle ] = useState(true);
+
+const Upcoming = ({ upcoming, addHighlight }) => {
+    const [toggle, setToggle] = useState(true);
 
     function toggleTable() {
         setToggle(!toggle);
@@ -11,6 +15,9 @@ const Upcoming = ({ upcoming }) => {
     let table = upcoming.map((obj) => {
         return (
             <tr key={obj.index}>
+                <td onClick={addHighlight}>
+                    <StarIcon sx={{ color: yellow[700] }}/>
+                </td>
                 <td>
                     {obj["org"]}
                 </td>
@@ -33,13 +40,15 @@ const Upcoming = ({ upcoming }) => {
                 <div onClick={toggleTable} className="table-header">
                     <h2>Upcoming Fights</h2>
                     <div className="expand-icon">
-                        <ExpandMoreIcon/>
+                        <ExpandLessIcon />
                     </div>
                 </div>
                 <div className="fight-table">
                     <table>
                         <thead>
                             <tr>
+                                <th>
+                                </th>
                                 <th>
                                     ORG
                                 </th>
@@ -69,14 +78,14 @@ const Upcoming = ({ upcoming }) => {
                 <div onClick={toggleTable} className="table-header">
                     <h2>Upcoming Fights</h2>
                     <div className="expand-icon">
-                        <ExpandMoreIcon/>
+                        <ExpandMoreIcon />
                     </div>
                 </div>
             </div>
         )
     }
 
-    return toggle? clicked() : notClicked();
+    return toggle ? clicked() : notClicked();
 }
 
 export default Upcoming;
