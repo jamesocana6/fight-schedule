@@ -4,7 +4,7 @@ import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import StarIcon from '@mui/icons-material/Star';
 import { yellow } from "@mui/material/colors";
 
-const Scheduled = ({ scheduled, addHighlight }) => {
+const Scheduled = ({ scheduled, addWatchlist, watchlist }) => {
     const [ toggle, setToggle ] = useState(true)
 
     function toggleTable() {
@@ -12,9 +12,17 @@ const Scheduled = ({ scheduled, addHighlight }) => {
     }
     
     let table = scheduled.map((obj) => {
+        let fightNames = []
+        let className = ""
+        for (let fight of watchlist) {
+          fightNames.push(fight[4])
+        } 
+        if (fightNames.includes(obj["event"])) {
+            className = "fav"
+        }
         return (
-            <tr key={obj.index}>
-                <td onClick={addHighlight}>
+            <tr className={className} key={obj.index}>
+                <td onClick={addWatchlist}>
                     <StarIcon  sx={{ color:yellow[700] }}/>
                 </td>
                 <td>

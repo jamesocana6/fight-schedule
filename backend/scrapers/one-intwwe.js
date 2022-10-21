@@ -32,13 +32,11 @@ async function getData() {
     date.each((idx, el) => {
         if (fights[idx] && $(el).text()) {
             fights[idx]["date"] = $(el).text().substring(0,6).trim();
-            console.log(fights[idx]["date"])
             fights[idx]["event"] = $(event[idx]).text();
             fights[idx]["link"] = $(link[idx]).attr("href");
             fights[idx]["org"] = "ONE";
         }
     });
-    console.log(fights)
 }
 
 getData()

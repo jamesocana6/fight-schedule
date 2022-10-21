@@ -103,6 +103,10 @@ function dateMMM(fights) {
 }
 
 // TODO: and then maybe link to the real website if possible. Use indexing to correctly find the fight. 
-// Style front end, maybe add a calendar, allow filtering by org
 // Add favorites to a list? Local storage array. onclick get row. 
+// row 1 is stars click stars to favorite
+// make fights reappear onclick checkbox = unchecked DONE
+// css animations
+
+// ICEBOX: Style front end, maybe add a calendar, allow filtering by org
 // show page to show all the fights on the card

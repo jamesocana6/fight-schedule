@@ -5,7 +5,7 @@ import StarIcon from '@mui/icons-material/Star';
 import { yellow } from "@mui/material/colors";
 
 
-const Upcoming = ({ upcoming, addHighlight }) => {
+const Upcoming = ({ upcoming, addWatchlist, watchlist }) => {
     const [toggle, setToggle] = useState(true);
 
     function toggleTable() {
@@ -13,9 +13,17 @@ const Upcoming = ({ upcoming, addHighlight }) => {
     }
 
     let table = upcoming.map((obj) => {
+        let fightNames = []
+        let className = ""
+        for (let fight of watchlist) {
+          fightNames.push(fight[4])
+        } 
+        if (fightNames.includes(obj["event"])) {
+            className = "fav"
+        }
         return (
-            <tr key={obj.index}>
-                <td onClick={addHighlight}>
+            <tr className={className} key={obj.index}>
+                <td onClick={addWatchlist}>
                     <StarIcon sx={{ color: yellow[700] }}/>
                 </td>
                 <td>

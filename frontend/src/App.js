@@ -5,23 +5,47 @@ import Filter from './Components/Filter';
 import Header from './Components/Header';
 
 function App() {
-
+  //localStorage.clear()
+  let watchlist = JSON.parse(localStorage.getItem("watchlist")) || [];
   let allFights = [];
-  const [fights, setFights] = useState(null)
+  const [fights, setFights] = useState(null);
 
   const URL = "http://localhost:4000/"
   const getData = async () => {
-    const response = await fetch(URL)
-    const data = await response.json()
+    const response = await fetch(URL);
+    const data = await response.json();
     setFights(data);
     allFights = data;
   }
-  const [unselectedOrgs, setUnselectedOrgs] = useState(null)
+  const [unselectedOrgs, setUnselectedOrgs] = useState(null);
 
-  useEffect(() => { getData().then(() => { if (fights != null) filterSchedule() }) }, [unselectedOrgs])
+  useEffect(() => { getData().then(() => { if (fights != null) filterSchedule() }) }, [unselectedOrgs]);
 
-  const addHighlight = (event) => {
-    event.target.closest("tr").setAttribute("class", "fav")
+  const addWatchlist = (event) => {
+    //if no items in the watchlist, push closest tr to localStorage and add className = fav
+    if (watchlist.length === 0) {
+      event.target.closest("tr").setAttribute("class", "fav");
+      watchlist.push(event.target.closest("tr").innerText.split("\t"));
+      localStorage.setItem("watchlist", JSON.stringify(watchlist));
+    } else {
+      let fightNames = []
+      for (let fight of watchlist) {
+        fightNames.push(fight[4])
+      }
+      // console.log(fightNames)
+      if (event.target.closest("tr").getAttribute("class") === "fav") {
+        event.target.closest("tr").removeAttribute("class");
+        // console.log("INDEX OF ",fightNames.indexOf(event.target.closest("tr").innerText.split("\t")[event.target.closest("tr").innerText.split("\t").length-1]))
+        // console.log("INCLUDES ",fightNames.includes(event.target.closest("tr")[4]))
+        watchlist.splice(fightNames.indexOf(event.target.closest("tr").innerText.split("\t")[event.target.closest("tr").innerText.split("\t").length-1]), 1);
+      } else {
+        event.target.closest("tr").setAttribute("class", "fav");
+        watchlist.push(event.target.closest("tr").innerText.split("\t"));
+      }
+
+    }
+    localStorage.setItem("watchlist", JSON.stringify(watchlist));
+    // console.log(watchlist);
   }
 
   function filterSchedule() {
@@ -32,21 +56,19 @@ function App() {
         if (unselectedOrgs.length === 0) {
           return true
         } else {
-          return !unselectedOrgs.includes(fight.org)
+          return !unselectedOrgs.includes(fight.org);
         }
       })
-      allFilteredFights.push(filteredFights)
+      allFilteredFights.push(filteredFights);
     }
     setFights(allFilteredFights);
   }
-  //set button or dropdown to filter by Org
-  // each button with .filter and then join the arrays together using
 
   return (
     <div className="App">
       <Header />
       <Filter setUnselectedOrgs={setUnselectedOrgs} />
-      <Main fights={fights} addHighlight={addHighlight}/>
+      <Main fights={fights} addWatchlist={addWatchlist} watchlist={watchlist} />
     </div>
   );
 }
