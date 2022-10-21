@@ -1,8 +1,8 @@
 import './public/style.css';
 import Main from './Pages/Main';
 import { useEffect, useState } from 'react';
-import Filter from './Components/Filter';
-import Header from './Components/Header';
+import { Routes, Route } from "react-router-dom";
+import Highlighted from './Pages/Highlighted';
 
 function App() {
   //localStorage.clear()
@@ -66,9 +66,10 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
-      <Filter setUnselectedOrgs={setUnselectedOrgs} />
-      <Main fights={fights} addWatchlist={addWatchlist} watchlist={watchlist} />
+      <Routes>
+        <Route exact path="/" element={<Main fights={fights} addWatchlist={addWatchlist} watchlist={watchlist} setUnselectedOrgs={setUnselectedOrgs} />}/>
+        <Route path="/highlighted" element={<Highlighted fights={fights} addWatchlist={addWatchlist} watchlist={watchlist} setUnselectedOrgs={setUnselectedOrgs} />} />
+      </Routes>
     </div>
   );
 }

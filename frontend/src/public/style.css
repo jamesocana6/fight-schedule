@@ -20,8 +20,26 @@
     --theme-favorited: rgb(255, 235, 135);
 }
 
+nav {
+    display: flex;
+    background-color: var(--theme-background);
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.right-links > a {
+    font-family: "Sports Jersey";
+    color: var(--theme-contrast);
+    padding: 0.5rem 1rem;
+}
+
+nav > div > a {
+    text-decoration: none;
+}
+
 .title {
-    margin-top: 0;
+    margin: 0;
     padding: 0.5rem;
     font-family: "New Athletic";
     color: var(--theme-contrast);

@@ -26,7 +26,6 @@ const Filter = ({ setUnselectedOrgs }) => {
                 <label>ONE <input className="filterBox" type="checkbox" value="ONE" name="ONE" defaultChecked={true}/> </label>
                 <label>Bellator <input className="filterBox" type="checkbox" value="Bellator" name="Bellator" defaultChecked={true}/> </label>
                 <label>PFL <input className="filterBox" type="checkbox" value="PFL" name="PFL" defaultChecked={true}/> </label> <br/>
-                <label>Starred Fights <input className="filterBox" type="checkbox" value="starred" name="starred" /></label>
             </form>
         </div>
     )

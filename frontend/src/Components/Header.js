@@ -1,10 +1,16 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
     return (
-        <div className="header">
-            <h1 className="title">Fight Schedule</h1>
-        </div>
+        <nav>
+            <div className="header">
+                <Link to ="/"><h1 className="title">Fight Schedule</h1></Link>
+            </div>
+            <div className="right-links">
+                <Link to="/highlighted">Starred</Link>
+            </div>
+        </nav>
     )
 }
 
