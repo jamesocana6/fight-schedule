@@ -21,6 +21,9 @@
 }
 
 nav {
+    width: 100%;
+    position: sticky;
+    top: 0;
     display: flex;
     background-color: var(--theme-background);
     justify-content: space-between;
@@ -150,3 +153,55 @@ label:first-child, label:last-child {
 .fav {
     background-color: var(--theme-favorited);
 }
+
+/* TODO: MAKE RESPONSIVE VIEW FOR PHONE */
+
+@media screen and (max-width: 641px) {
+    body {
+        background-color: blanchedalmond;
+    }
+    td {
+        padding: 7px 3px;
+    }
+    .upcoming-fights, .past-fights, .scheduled-fights {
+        text-align: left;
+        margin-inline: 1.5rem;
+        min-width: max-content;
+    }
+    .filter-form {
+        margin-inline: 1.5rem;
+    }
+    input {
+        margin: 0px;
+    }
+    label {
+        margin-inline: 3px;
+    }
+}
+
+@media screen and (min-width: 641px) and (max-width: 1007px) {
+    body {
+        background-color: blueviolet;
+    }
+    td {
+        padding: 7px 3px;
+    }
+    .upcoming-fights, .past-fights, .scheduled-fights {
+        text-align: left;
+        margin-inline: 1.5rem;
+        min-width: max-content;
+    }
+    .filter-form {
+        margin-inline: 1.5rem;
+    }
+    input {
+        margin: 0px;
+    }
+    label {
+        margin-inline: 3px;
+    }
+}
+
+/* Small (smaller than 640px)
+Medium (641px to 1007px)
+Large (1008px and larger) */
