@@ -52,6 +52,11 @@ nav > div > a {
 
 /* TABLE */
 
+.fight-table {
+    display: flex;
+    justify-content: center;
+}
+
 .upcoming-fights, .past-fights, .scheduled-fights {
     text-align: left;
     margin-inline: 3rem;
