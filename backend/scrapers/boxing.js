@@ -14,7 +14,7 @@ async function getData() {
     // Use .each method to loop through the elemtns we selected
     events.each((idx, el) => {
         const fight = { index: ""};    
-        let event = $(el).text().replace(".","").replace(/-/g,"–").split("–")
+        let event = $(el).text().replaceAll(".","").replaceAll("-","–").split("–")
         if (event.length < 4) {
             fight["date"] = event[1].trim().substring(0,3).toUpperCase() + " " + event[1].trim().substring(event[1].trim().length-2)
             fight["event"] = event[0].trim()

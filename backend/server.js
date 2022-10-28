@@ -33,33 +33,23 @@ app.use(cors());
 app.use(express.json());
 
 
-app.get('/', async (req, res) => {
+app.get('/', (req, res) => {
     let past = []
     let scheduled = []
     let upcoming = []
     let fights = [...UFC, ...PFL, ...BELL, ...BOXING, ...ONE];
-    let sorted = []
-    if (fights.length > 0) {
-        sorted = await sortByDate(formatDate(fights))
-        for (let fight of sorted) {
-            if (fight["date"] >= today && Number.parseInt(fight["date"]) < Number.parseInt(today) + 7) {
-                upcoming.push(fight);
-            } else if (fight["date"] >= today) {
-                scheduled.push(fight);
-            } else {
-                past.push(fight);
-            }
+    let sorted = sortByDate(formatDate(fights))
+    for (let fight of sorted) {
+        if (fight["date"] >= today && Number.parseInt(fight["date"]) < Number.parseInt(today) + 7) {
+            upcoming.push(fight);
+        } else if (fight["date"] >= today) {
+            scheduled.push(fight);
+        } else {
+            past.push(fight);
         }
     }
     fights = [dateMMM(upcoming), dateMMM(scheduled), dateMMM(past)]
     res.json(fights);
-})
-
-app.get('/boxing', (req, res) => {
-    // console.log(ONE)
-    //res.json(UFC);
-    //console.log("BELL", BELL)
-    res.json(ONE);
 })
 
 app.listen(PORT, () => {
