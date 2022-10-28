@@ -3,6 +3,27 @@ import Main from './Pages/Main';
 import { useEffect, useState } from 'react';
 import { Routes, Route } from "react-router-dom";
 import Highlighted from './Pages/Highlighted';
+ // Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyAfebLexB0YA3DHnXofcKQOKaWu8ivZCwk",
+  authDomain: "fightschedule-fc3e0.firebaseapp.com",
+  projectId: "fightschedule-fc3e0",
+  storageBucket: "fightschedule-fc3e0.appspot.com",
+  messagingSenderId: "855176173344",
+  appId: "1:855176173344:web:5d53c304c4ce473537e945",
+  measurementId: "G-44X3PZRHRT"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 
 function App() {
   //localStorage.clear()
