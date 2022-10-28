@@ -15,7 +15,7 @@ async function getTime() {
     time.each((idx, el) => {
         const fight = { index: ""};
         fight.index = idx;
-        fight["time"] = $(el).text().replace("/EST/g", "ET");
+        fight["time"] = $(el).text().replace(/EST/g, "ET");
         fights.push(fight);
     });
 }

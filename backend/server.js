@@ -39,7 +39,7 @@ app.get('/', (req, res) => {
     let upcoming = []
     let fights = [...UFC, ...PFL, ...BELL, ...BOXING, ...ONE];
     let sorted = []
-    if (fights) {
+    if (fights.length > 0) {
         sorted = sortByDate(formatDate(fights))
     }
     for (let fight of sorted) {
