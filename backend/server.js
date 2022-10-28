@@ -38,7 +38,10 @@ app.get('/', (req, res) => {
     let scheduled = []
     let upcoming = []
     let fights = [...UFC, ...PFL, ...BELL, ...BOXING, ...ONE];
-    let sorted = sortByDate(formatDate(fights))
+    let sorted = []
+    if (fights) {
+        sorted = sortByDate(formatDate(fights))
+    }
     for (let fight of sorted) {
         if (fight["date"] >= today && Number.parseInt(fight["date"]) < Number.parseInt(today) + 7) {
             upcoming.push(fight);
