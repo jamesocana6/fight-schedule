@@ -21,7 +21,7 @@ const Scheduled = ({ scheduled, addWatchlist, watchlist }) => {
             className = "fav"
         }
         return (
-            <tr className={className} key={obj.index}>
+            <tr className={className} key={obj.index+obj.org}>
                 <td onClick={addWatchlist}>
                     <StarIcon  sx={{ color:yellow[700] }}/>
                 </td>

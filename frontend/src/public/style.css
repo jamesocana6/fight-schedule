@@ -13,6 +13,17 @@
     src: url("./fonts/sportsjersey.ttf");
 }
 
+* {
+    box-sizing: border-box;
+}
+
+.message {
+    margin: 0;
+    margin-top: 1.5rem;
+    font-size: medium;
+    font-style: italic;
+}
+
 :root {
     --theme-background: rgb(44, 44, 44);
     --theme-contrast: rgb(239, 239, 239);
@@ -21,7 +32,7 @@
 }
 
 nav {
-    width: 100%;
+    width: 100vw;
     position: sticky;
     top: 0;
     display: flex;
@@ -53,6 +64,7 @@ nav > div > a {
 /* TABLE */
 
 .fight-table {
+    width: calc(100vw - 6rem);
     display: flex;
     justify-content: center;
 }
@@ -64,9 +76,13 @@ nav > div > a {
 }
 
 .table-header {
-    margin: 0;
+    width: 100%;
     display: flex;
     justify-content: space-between;
+}
+
+div.upcoming-fights > div.table-header > h2 {
+    margin-top: 5px;
 }
 
 .expand-icon, h2 {
@@ -159,6 +175,10 @@ label:first-child, label:last-child {
     background-color: var(--theme-favorited);
 }
 
+.fav:hover {
+    background-color: var(--theme-favorited);
+}
+
 /* TODO: MAKE RESPONSIVE VIEW FOR PHONE */
 
 @media screen and (max-width: 641px) {
@@ -180,16 +200,22 @@ label:first-child, label:last-child {
         margin: 0px;
     }
     label {
-        margin-inline: 3px;
+        margin-inline: 2px;
     }
+    .fight-table {
+        width: calc(100vw - 3rem);
+        display: flex;
+        justify-content: center;
+    }
+    
 }
 
-@media screen and (min-width: 641px) and (max-width: 1007px) {
+@media screen and (min-width: 641px) and (max-width: 930px) {
     body {
         background-color: lightgray;
     }
     td {
-        padding: 7px 3px;
+        padding: 0.5rem 1rem;
     }
     .upcoming-fights, .past-fights, .scheduled-fights {
         text-align: left;
@@ -204,6 +230,11 @@ label:first-child, label:last-child {
     }
     label {
         margin-inline: 3px;
+    }
+    .fight-table {
+        width: calc(100vw - 3rem);
+        display: flex;
+        justify-content: center;
     }
 }
 

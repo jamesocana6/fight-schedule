@@ -12,7 +12,7 @@ const Past = ({ past }) => {
 
     let table = past.map((obj) => {
         return (
-            <tr key={obj.index}>
+            <tr key={obj.index+obj.org}>
                 <td>
                     {obj["org"]}
                 </td>
