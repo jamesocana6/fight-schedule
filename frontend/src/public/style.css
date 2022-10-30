@@ -186,7 +186,7 @@ label:first-child, label:last-child {
 
 @media screen and (min-width: 641px) and (max-width: 1007px) {
     body {
-        background-color: blueviolet;
+        background-color: lightgray;
     }
     td {
         padding: 7px 3px;
