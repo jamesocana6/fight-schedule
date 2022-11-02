@@ -1,3 +1,4 @@
+// DEPENDENCIES
 const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 4000;
@@ -7,6 +8,8 @@ const BELL = require("./scrapers/bellator-espn.js");
 const BOXING = require("./scrapers/boxing.js");
 const ONE = require("./scrapers/one-intwwe.js");
 const cors = require("cors");
+
+// DATE FIXING
 const date = new Date();
 let fixedDate = date.getDate().toString();
 if (date.getDate() < 10) {
@@ -36,11 +39,11 @@ const dates = {
      "DEC": "12", 
 }
 
-
+// MIDDLEWARE
 app.use(cors());
 app.use(express.json());
 
-
+// ROUTES
 app.get('/', async (req, res) => {
     let bell = await BELL();
     let boxing = await BOXING();
