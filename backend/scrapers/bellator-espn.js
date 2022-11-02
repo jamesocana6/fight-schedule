@@ -3,9 +3,10 @@ const axios = require("axios");
 const cheerio = require("cheerio");
 
 const URL = "https://www.espn.com/mma/schedule/_/league/bellator"
-const fights = [];
+let fights = [];
 
 async function getData() {
+    fights = [];
     const { data } = await axios.get(URL);
     const $ = cheerio.load(data);
     //This weeks events

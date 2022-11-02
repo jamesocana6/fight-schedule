@@ -4,10 +4,11 @@ const cheerio = require("cheerio");
 
 const URL1 = "https://www.itnwwe.com/mma/one-championship-schedule/"
 const URL2 = "https://www.onefc.com/events/"
-const fights = [];
+let fights = [];
 
 async function getTime() {
-    const { data } = await axios.get(URL1);
+    fights = [];
+    const {data} = await axios.get(URL1);
     const $ = cheerio.load(data);
     //This weeks events
     const time = $("div > div > figure:nth-child(5) > table > tbody > tr > td:nth-child(4)");
@@ -21,7 +22,7 @@ async function getTime() {
 }
 
 async function getData() {
-    getTime()
+    await getTime()
     const { data } = await axios.get(URL2);
     const $ = cheerio.load(data);
     //This weeks events

@@ -92,10 +92,12 @@ function formatDate(fights) {
 }
 
 function sortByDate(fights) {
+    //console.dir(fights, {'maxArrayLength': null});
     if (fights.length > 0) {
         let sorted = fights.sort((a,b) => a['date'] - b['date'] )
         let i = 0;
         for (let fight of sorted) {
+            //console.log(`FIGHT ${i}`, fight)
             if (fight.index) {
                 fight.index = i
                 i++
