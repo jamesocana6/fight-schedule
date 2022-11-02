@@ -19,6 +19,7 @@ I made this app as a resource for myself. As a combat sport fan, I wanted to see
 * Express.js
 * Cheerio
 * CSS3
+* Axios
 
 ## Features
 * Users can filter the fights by organization.
