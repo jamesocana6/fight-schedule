@@ -1,16 +1,11 @@
 const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 4000;
-// const axios = require("axios");
-// const cheerio = require("cheerio");
 const UFC = require("./scrapers/ufc-espn.js");
 const PFL = require("./scrapers/pfl-espn.js");
 const BELL = require("./scrapers/bellator-espn.js");
 const BOXING = require("./scrapers/boxing.js");
 const ONE = require("./scrapers/one-intwwe.js");
-//const ONE2 = require("./scrapers/one-espn.js");
-//const MMA = require("./scrapers/mma-espn.js");
-//const BOXING = require("./scrapers/boxing-intwwe.js");
 const cors = require("cors");
 const date = new Date();
 let fixedDate = date.getDate().toString();
@@ -46,11 +41,16 @@ app.use(cors());
 app.use(express.json());
 
 
-app.get('/', (req, res) => {
+app.get('/', async (req, res) => {
+    let bell = await BELL();
+    let boxing = await BOXING();
+    let ufc = await UFC();
+    let pfl = await PFL();
+    let one = await ONE();
     let past = []
     let scheduled = []
     let upcoming = []
-    let fights = [...UFC, ...PFL, ...BELL, ...BOXING, ...ONE];
+    let fights = [...ufc, ...pfl, ...bell, ...boxing, ...one];
     let sorted = sortByDate(formatDate(fights))
     for (let fight of sorted) {
         if (fight["date"] >= today && Number.parseInt(fight["date"]) < Number.parseInt(nextWeek)) {
