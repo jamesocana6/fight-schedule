@@ -33,8 +33,7 @@ async function getData() {
         fight["org"] = "Boxing";
         fights.push(fight);
     });
+    return fights;
 }
 
-getData()
-
-module.exports = fights;
+module.exports = getData;

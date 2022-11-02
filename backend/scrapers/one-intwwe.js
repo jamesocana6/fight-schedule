@@ -37,8 +37,7 @@ async function getData() {
             fights[idx]["org"] = "ONE";
         }
     });
+    return fights;
 }
 
-getData()
-
-module.exports = fights;
+module.exports = getData;

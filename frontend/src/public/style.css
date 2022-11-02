@@ -29,6 +29,11 @@
     --theme-contrast: rgb(239, 239, 239);
     --theme-onhover: rgb(205, 205, 205);
     --theme-favorited: rgb(255, 235, 135);
+    --theme-bg: rgb(226, 226, 226);
+}
+
+body {
+    background-color: var(--theme-bg);
 }
 
 nav {
@@ -182,9 +187,9 @@ label:first-child, label:last-child {
 /* TODO: MAKE RESPONSIVE VIEW FOR PHONE */
 
 @media screen and (max-width: 641px) {
-    body {
+    /* body {
         background-color: blanchedalmond;
-    }
+    } */
     td {
         padding: 7px 3px;
     }
@@ -211,9 +216,9 @@ label:first-child, label:last-child {
 }
 
 @media screen and (min-width: 641px) and (max-width: 930px) {
-    body {
+    /* body {
         background-color: lightgray;
-    }
+    } */
     td {
         padding: 0.5rem 1rem;
     }

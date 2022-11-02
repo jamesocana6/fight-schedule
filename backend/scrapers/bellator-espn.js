@@ -28,7 +28,7 @@ async function getData() {
         fight["org"]= "Bellator";
         fights.push(fight);
     });
+    return fights;
 }
-getData()
 
-module.exports = fights;
+module.exports = getData;
