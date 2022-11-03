@@ -17,8 +17,8 @@ if (date.getDate() < 10) {
 }
 const today = (date.getMonth()+1).toString() + fixedDate;
 const datePlusOneWeek = new Date()
-let fixedDate2 = datePlusOneWeek.getDate().toString();
 datePlusOneWeek.setDate(datePlusOneWeek.getDate() + 7)
+let fixedDate2 = datePlusOneWeek.getDate().toString();
 if (datePlusOneWeek.getDate() < 10) {
     fixedDate2 = "0" + datePlusOneWeek.getDate().toString();
 }
