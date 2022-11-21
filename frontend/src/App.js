@@ -31,7 +31,7 @@ function App() {
   let allFights = [];
   const [fights, setFights] = useState(null);
 
-  const URL = "https://fight-schedule-backend.herokuapp.com/"
+  const URL = "https://fight-schedule-backend.onrender.com/"
   //const URL = "http://localhost:4000/"
   const getData = async () => {
     const response = await fetch(URL);
