@@ -27,6 +27,7 @@ const Filter = ({ setUnselectedOrgs }) => {
                 <label>Bellator <input className="filterBox" type="checkbox" value="Bellator" name="Bellator" defaultChecked={true}/> </label>
                 <label>PFL <input className="filterBox" type="checkbox" value="PFL" name="PFL" defaultChecked={true}/> </label> <br/>
             </form>
+            <b>Filtering can take time to complete!</b>
 
             <p className="message">Click the star to highlight the fight.</p>
         </div>
